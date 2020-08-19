@@ -21,9 +21,9 @@ def half_adder(a, b):
         ha_carry_out, ha_sum = a + b
     """
     ha_sum = pyrtl.WireVector(1, name='ha_sum')
-    temp1 = WireVector(1, name='temp1')
-    temp2 = WireVector(bitwidth=1, name='temp2')
-    temp3 = WireVector(bitwidth=1, name='temp3')
+    temp1 = pyrtl.WireVector(1, name='temp1')
+    temp2 = pyrtl.WireVector(bitwidth=1, name='temp2')
+    temp3 = pyrtl.WireVector(bitwidth=1, name='temp3')
     temp1 <<= ~(a & b)
     temp2 <<= ~(a & temp1)
     temp3 <<= ~(b & temp1)
