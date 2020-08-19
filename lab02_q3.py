@@ -21,21 +21,21 @@ result = pyrtl.Output(3, 'result')
 # < add your code here >
 with pyrtl.conditional_assignment:
  with s == 000:
- result |= a
+  result |= a
  with s == 001:
- result |= b
+  result |= b
  with s == 010:
- result |= c
+  result |= c
  with s == 011:
- result |= d
+  result |= d
  with s == 100:
- result |= e
+  result |= e
  with s == 101:
- result |= e
+  result |= e
  with s == 110:
- result |= e
+  result |= e
  with s == 111:
- result |= e
+  result |= e
 
 # Simulate and test your design for 16 cycles using random inputs
 # < add your code here >
