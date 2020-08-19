@@ -14,28 +14,28 @@ a, b, c, d, e = pyrtl.Input(3, 'a'), pyrtl.Input(3, 'b'), pyrtl.Input(3, 'c'), p
 s = pyrtl.Input(bitwidth=3, name='s')
 
 # Declare outputs 
-result = pyrtl.Output(3, 'result')
+o = pyrtl.Output(3, 'o')
 # < add your code here >
 
 # Describe your 5:1 MUX implementation
 # < add your code here >
 with pyrtl.conditional_assignment:
  with s == 0:
-  result |= a
+  o |= a
  with s == 1:
-  result |= b
+  o |= b
  with s == 2:
-  result |= c
+  o |= c
  with s == 3:
-  result |= d
+  o |= d
  with s == 4:
-  result |= e
+  o |= e
  with s == 5:
-  result |= e
+  o |= e
  with s == 6:
-  result |= e
+  o |= e
  with s == 7:
-  result |= e
+  o |= e
 
 # Simulate and test your design for 16 cycles using random inputs
 # < add your code here >
