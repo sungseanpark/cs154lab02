@@ -20,8 +20,17 @@ def half_adder(a, b):
     """
         ha_carry_out, ha_sum = a + b
     """
-    ha_sum = # < add your code here >
-    ha_carry_out = # < add your code here >
+    ha_sum = pyrtl.WireVector(1, name='ha_sum')
+    temp1 = WireVector(1, name='temp1')
+    temp2 = WireVector(bitwidth=1, name='temp2')
+    temp3 = WireVector(bitwidth=1, name='temp3')
+    temp1 <<= ~(a & b)
+    temp2 <<= ~(a & temp1)
+    temp3 <<= ~(b & temp1)
+    ha_sum <<= ~(temp2 & temp3)
+    #~( ~(~(a & b) & a) &  ~(~(a & b) & b) )# < add your code here >
+    ha_carry_out = pyrtl.WireVector(1, name='ha_carry_out')# < add your code here >
+    ha_carry_out <<= a & b
     return ha_sum, ha_carry_out
 
 
@@ -33,14 +42,24 @@ def alu (a, b, op):
         else if op == 2" return a + b
     """
     # Operation 0: a and b
-    op0 = # < add your code here >
+    op0 = pyrtl.WireVector(1, name='op0')
+    op0 <<= a & b# < add your code here >
     # Operation 1: a xnor b
-    op1 = # < add your code here >
+    op1 = pyrtl.WireVector(1, name='op1')
+    op1 <<= a ^ b# < add your code here >
     # Operation 2: a + b
     op2_c, op2_s = half_adder(a, b)
     # Based on the given "op", return the proper signals as outputs
     alu_r = pyrtl.WireVector(bitwidth=1)
     alu_cout = pyrtl.WireVector(bitwidth=1)
+    with pyrtl.conditional_assignment:
+        with op == 0:
+            alu_r |= op0
+        with op == 1:
+            alu_r |= op1
+        with op == 2
+            alu_r |= op2_s
+            alu_cout |= op2_c
     # < add your code here >
     return alu_r, alu_cout
 
