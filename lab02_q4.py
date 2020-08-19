@@ -57,7 +57,7 @@ def alu (a, b, op):
             alu_r |= op0
         with op == 1:
             alu_r |= op1
-        with op == 2
+        with op == 2:
             alu_r |= op2_s
             alu_cout |= op2_c
     # < add your code here >
