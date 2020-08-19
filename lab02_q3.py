@@ -20,21 +20,21 @@ result = pyrtl.Output(3, 'result')
 # Describe your 5:1 MUX implementation
 # < add your code here >
 with pyrtl.conditional_assignment:
- with s == 000:
+ with s == 0:
   result |= a
- with s == 001:
+ with s == 1:
   result |= b
- with s == 010:
+ with s == 2:
   result |= c
- with s == 011:
+ with s == 3:
   result |= d
- with s == 100:
+ with s == 4:
   result |= e
- with s == 101:
+ with s == 5:
   result |= e
- with s == 110:
+ with s == 6:
   result |= e
- with s == 111:
+ with s == 7:
   result |= e
 
 # Simulate and test your design for 16 cycles using random inputs
@@ -48,12 +48,12 @@ import random
 for cycle in range(16):
     # Call "sim.step" to simulate each clock cycle of the design
     sim.step({
-        'a': random.choice([000, 001, 010, 011, 100, 101, 110, 111]),
-        'b': random.choice([000, 001, 010, 011, 100, 101, 110, 111]),
-        'c': random.choice([000, 001, 010, 011, 100, 101, 110, 111]),
-        'd': random.choice([000, 001, 010, 011, 100, 101, 110, 111]),
-        'e': random.choice([000, 001, 010, 011, 100, 101, 110, 111]),
-        's': random.choice([000, 001, 010, 011, 100, 101, 110, 111])
+        'a': random.choice([0, 1, 2, 3, 4, 5, 6, 7]),
+        'b': random.choice([0, 1, 2, 3, 4, 5, 6, 7]),
+        'c': random.choice([0, 1, 2, 3, 4, 5, 6, 7]),
+        'd': random.choice([0, 1, 2, 3, 4, 5, 6, 7]),
+        'e': random.choice([0, 1, 2, 3, 4, 5, 6, 7]),
+        's': random.choice([0, 1, 2, 3, 4, 5, 6, 7])
         })
 
 # Print the trace results to the screen.
